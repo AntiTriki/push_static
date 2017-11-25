@@ -1,0 +1,27 @@
+
+<script>
+  var key = 'AAAAjWnnhBU:APA91bHmlUhuz9gTS2ETdfTHIvagtyWpegI1pcgiuIDVWrkZQYWKQA4sdGoXvet0Ednxt_DBA47-BTi5t_h9XTDSeQCcnjJM13xzjUSacK2lNR8u2WjpdNi1fn5pQL1nk-v0Qm880u1N';
+var to = 'e4mTHDmG9EM:APA91bF8xWFW2rUwsr71jay5nvsVLQ8lXZ37vbTfGmhSr1zXQPHZKcyTJ40ACpu5vQsqwMaQmeC4VHpeN5OW23qTtxZ3TZkyvz5YBDdrPOgDzTLbZXLz-cB1LaYSRZuKdPPfie8siytt';
+var notification = {
+  'title': 'Portugal vs. Denmark',
+  'body': '5 to 1',
+  'icon': 'firebase-logo.png',
+  'click_action': 'http://localhost:8081'
+};
+
+fetch('https://fcm.googleapis.com/fcm/send', {
+  'method': 'POST',
+  'headers': {
+    'Authorization': 'key=' + key,
+    'Content-Type': 'application/json'
+  },
+  'body': JSON.stringify({
+    'notification': notification,
+    'to': to
+  })
+}).then(function(response) {
+  console.log(response);
+}).catch(function(error) {
+  console.error(error);
+})
+</script>
